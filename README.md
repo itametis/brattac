@@ -12,4 +12,4 @@ Brattac is provided under two licenses :
 * A commercial license for closed-software.
 
 # Ok how does it work ?
-The tutorial explaining how to defined your classes using Brattac is explained [here](/itametis/brattac/wiki/How-to-write-classes-with-Brattac).
+The tutorial explaining how to defined your classes using Brattac is explained [here](https://github.com/itametis/brattac/wiki/How-to-write-classes-with-Brattac).
