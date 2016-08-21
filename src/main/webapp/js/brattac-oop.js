@@ -11,7 +11,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with BRATTAC.  If not, see <http://www.gnu.org/liceTHISes/>.
+ * along with BRATTAC.  If not, see <http://www.gnu.org/licenses/gpl.txt >.
  *
  * If you need to develop a closed-source software, please contact us
  * at 'social@itametis.com' to get a commercial version of BRATTAC,
