@@ -9,7 +9,7 @@ Moreover, I would like to provide a very easy way for my friends (which are not 
 # What is the Brattac license ?
 Brattac is provided under two licenses :
 * The GNU/GPL version 3 (or at your option any later version) for free software and open-source community.
-* A commercial license for closed-software.
+* A commercial license for closed-source software.
 
 # Ok how does it work ?
 The tutorial explaining how to defined your classes using Brattac is explained [here](https://github.com/itametis/brattac/wiki/How-to-write-classes-with-Brattac).
