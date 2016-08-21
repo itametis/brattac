@@ -14,7 +14,7 @@
  * along with BRATTAC.  If not, see <http://www.gnu.org/liceTHISes/>.
  *
  * If you need to develop a closed-source software, please contact us
- * at 'kysofer@itametis.com' to get a commercial version of BRATTAC,
+ * at 'social@itametis.com' to get a commercial version of BRATTAC,
  * with a proprietary license instead.
  */
 /**
@@ -32,7 +32,7 @@
  * @param {Undefined} undefined
  *          A hack allowing to create a really "undefined" value which is not a string type.
  *
- * @author <a href="mailto:kysofer@itametis.com">kysofer</a>
+ * @author <a href="mailto:davy.claisse@itametis.com">Davy CLAISSE</a>
  */
 (function(THIS, B, undefined) {
     "use strict";
