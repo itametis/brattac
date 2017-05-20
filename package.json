@@ -1,0 +1,31 @@
+{
+  "name": "itametis-brattac",
+  "version": "2.0.0",
+  "author": "ITAMETIS",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-clean": "0.3.2",
+    "gulp-concat": "2.6.1",
+    "gulp-release-it": "1.1.2",
+    "gulp-uglify": "2.1.2",
+    "jasmine": "2.5.3",
+    "jasmine-core": "2.5.2",
+    "karma": "1.4.1",
+    "karma-commonjs": "1.0.0",
+    "karma-jasmine": "1.1.0",
+    "karma-phantomjs-launcher": "1.0.2",
+    "pump": "^1.0.2"
+  },
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
+  "scripts": {
+    "clean": "node ./node_modules/gulp/bin/gulp.js clean",
+    "merge": "node ./node_modules/gulp/bin/gulp.js merge",
+    "test": "node ./node_modules/gulp/bin/gulp.js test",
+    "package": "node ./node_modules/gulp/bin/gulp.js package",
+    "release": "node ./node_modules/gulp/bin/gulp.js release",
+    "devmod": "node ./node_modules/gulp/bin/gulp.js devmod"
+  }
+}
