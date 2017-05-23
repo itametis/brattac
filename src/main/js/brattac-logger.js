@@ -47,10 +47,10 @@
     }
 
     /**
-     * Concatenates all elements of the ellipse given in parameters.
+     * Concatenates all elements of the Ellipsis given in parameters.
      *
-     * @param {Ellipse} args
-     *          The ellipse of all parameters to concatenate.
+     * @param {Ellipsis} args
+     *          The Ellipsis of all parameters to concatenate.
      *
      * @returns {String} A concatenation of all basic types stored into the parameter.
      */
@@ -96,7 +96,7 @@
      * Logs the specified message into the JavaScript console if this one exists (see your browser documentation for more details) ; note
      * the message will automatically have the prefix "[DEBUG] ".
      *
-     * @param {Ellipse}
+     * @param {Ellipsis}
      *          Variable number of parameters which should be basic types like Integer, Double or String.
      */
     B.logDebug = function() {
@@ -109,7 +109,7 @@
      * Logs the specified message into the JavaScript console if this one exists (see your browser documentation for more details) ; note
      * the message will automatically have the prefix "[ERROR] ".
      *
-     * @param {Ellipse}
+     * @param {Ellipsis}
      *          Variable number of parameters which should be basic types like Integer, Double or String.
      */
     B.logError = function() {
@@ -122,7 +122,7 @@
      * Logs the specified message into the JavaScript console if this one exists (see your browser documentation for more details) ; note
      * the message will automatically have the prefix "[FATAL] ".
      *
-     * @param {Ellipse}
+     * @param {Ellipsis}
      *          Variable number of parameters which should be basic types like Integer, Double or String.
      */
     B.logFatal = function() {
@@ -135,7 +135,7 @@
      * Logs the specified message into the JavaScript console if this one exists (see your browser documentation for more details) ; note
      * the message will automatically have the prefix "[INFO] ".
      *
-     * @param {Ellipse}
+     * @param {Ellipsis}
      *          Variable number of parameters which should be basic types like Integer, Double or String.
      */
     B.logInfo = function() {
@@ -148,7 +148,7 @@
      * Logs the specified message into the JavaScript console if this one exists (see your browser documentation for more details) ; note
      * the message will automatically have the prefix "[WARNING] ".
      *
-     * @param {Ellipse}
+     * @param {Ellipsis}
      *          Variable number of parameters which should be basic types like Integer, Double or String.
      */
 
