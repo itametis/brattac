@@ -30,7 +30,7 @@
  * @param {Undefined} undefined
  *          A hack allowing to create a really "undefined" which is not a string.
  */
-(function (B, undefined) {
+(function(B, undefined) {
     /**
      * Determines if the parameter is defined. This means this object has a name space and is correctly initialized in memory.
      * <br />
@@ -51,7 +51,7 @@
      *
      * @return true if the object is defined, false otherwise.
      */
-    B.isDefined = function (object) {
+    B.isDefined = function(object) {
         return !B.isUndefined(object);
     };
 
@@ -77,7 +77,7 @@
      *
      * @return true if the object is a string and it is empty, false otherwise.
      */
-    B.isEmpty = function (object) {
+    B.isEmpty = function(object) {
         return  object === "" || ((typeof object === "object") && (object == ""));
     };
 
@@ -102,7 +102,7 @@
      *
      * @return true if the object is a string and it is empty, false otherwise.
      */
-    B.isNotEmpty = function (object) {
+    B.isNotEmpty = function(object) {
         return !B.isNull(object) && (typeof object === "object" ? object.length > 0 : object !== "");
     };
 
@@ -127,7 +127,7 @@
      *
      * @return true if the object is defined and not null (or "null", the string is forbidden), false otherwise.
      */
-    B.isNotNull = function (object) {
+    B.isNotNull = function(object) {
         return B.isDefined(object) && !B.isNull(object);
     };
 
@@ -152,7 +152,7 @@
      *
      * @return true if the object is defined and null, false otherwise.
      */
-    B.isNull = function (object) {
+    B.isNull = function(object) {
         return object === null || object === "null";
     };
 
@@ -176,7 +176,7 @@
      *
      * @return true if the object is defined, false otherwise.
      */
-    B.isUndefined = function (object) {
+    B.isUndefined = function(object) {
         return object === undefined;
     };
 })(B);

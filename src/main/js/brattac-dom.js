@@ -189,7 +189,7 @@
          * @param {Function} callback
          *          The function to execute once the event has been caught.
          */
-        addEvent : function(type, callback) {
+        addEvent: function(type, callback) {
             this[type] = callback;
         },
 
@@ -201,7 +201,7 @@
          * @param {Function} callback
          *          The function to execute once the event has been caught.
          */
-        removeEvent : function(type, callback) {
+        removeEvent: function(type, callback) {
             this[type] = null;
         },
     };
@@ -215,7 +215,7 @@
          * @param {String} value
          *          The content of the attribute to add.
          */
-        addAttribute : function(name, value) {
+        addAttribute: function(name, value) {
             this.setAttribute(name, value);
         },
 
@@ -225,7 +225,7 @@
          * @param {HTML as String} data
          *          The new data to insert into the current HTML tag.
          */
-        appendHtmlContent : function(data) {
+        appendHtmlContent: function(data) {
             if (this.innerHTML) {
                 this.innerHTML += data;
             }
@@ -234,7 +234,7 @@
         /**
          * Removes the current HTML object from its parent (and so the DOM).
          */
-        remove : function() {
+        remove: function() {
             this.parentNode.removeChild(document.getElementById(this.id));
         },
 
@@ -244,7 +244,7 @@
          * @param {HTML as String} data
          *          The new data to insert into the current HTML tag.
          */
-        replaceHtmlContent : function(data) {
+        replaceHtmlContent: function(data) {
             if (this.innerHTML) {
                 this.innerHTML = data;
             }
@@ -258,7 +258,7 @@
          * @param {String} value
          *          The content of the attribute to add.
          */
-        updateAttribute : function(name, value) {
+        updateAttribute: function(name, value) {
             this.setAttribute(name, value); // Update and add methods are the same in JavaScript.
         }
     };
@@ -270,7 +270,7 @@
          * @param {String} name
          *          The name of the class to add.
          */
-        addClass : function(name) {
+        addClass: function(name) {
             if (!this.hasClass(name)) {
                 this.className += " " + name;
             }
@@ -284,7 +284,7 @@
          *
          * @return true if the class exists, false otherwise.
          */
-        hasClass : function(name) {
+        hasClass: function(name) {
             var result = name !== undefined && name !== null && name !== "";
 
             if (result) {
@@ -301,7 +301,7 @@
          * @param {String} name
          *          The name of the class to remove.
          */
-        removeClass : function(name) {
+        removeClass: function(name) {
             var regex = new RegExp('(?:\\s|^)' + name + '(?:\\s|$)');
             this.className = this.className.replace(regex, " ");
         },
@@ -314,7 +314,7 @@
          * @param {String}
          *          The value of the style property to update.
          */
-        updateStyle : function(name, value) {
+        updateStyle: function(name, value) {
             this.style[name] = value;
         }
     };
