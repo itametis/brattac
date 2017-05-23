@@ -14,6 +14,7 @@ module.exports = function(config) {
         files: [
             './target/merged/brattac-dom.js',
             './target/merged/brattac-api.js',
+            './target/merged/brattac-rest.js',
             './target/merged/brattac-oop.js',
             './src/test/js/*.js'
         ],

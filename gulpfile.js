@@ -36,15 +36,26 @@ gulp.task('merge', function() {
         .pipe(concat('brattac-api.js'))
         .pipe(gulp.dest(MERGED_FILES_DIR));
 
+    // Concatenate Brattac LOG :
+    gulp.src([SRC_DIR + '/brattac-header.js', SRC_DIR + '/brattac-logger.js'])
+        .pipe(concat('brattac-log.js'))
+        .pipe(gulp.dest(MERGED_FILES_DIR));
+        
+    // Concatenate Brattac REST :
+    gulp.src([SRC_DIR + '/brattac-header.js', SRC_DIR + '/brattac-api.js', SRC_DIR + '/brattac-rest.js'])
+        .pipe(concat('brattac-rest.js'))
+        .pipe(gulp.dest(MERGED_FILES_DIR));
+
     // Concatenate Brattac OOP :
     gulp.src([SRC_DIR + '/brattac-header.js', SRC_DIR + '/brattac-oop.js'])
         .pipe(concat('brattac-oop.js'))
         .pipe(gulp.dest(MERGED_FILES_DIR));
-        
-    // Concatenate all files together :
+
+    // Concatenate all files together (brattac-header is useless when brattac-dom is included) :
     return gulp.src([
                 SRC_DIR + '/brattac-dom.js',
                 SRC_DIR + '/brattac-api.js',
+                SRC_DIR + '/brattac-log.js',
                 SRC_DIR + '/brattac-oop.js'
             ])
             .pipe(concat('brattac-all.js'))
@@ -77,15 +88,15 @@ gulp.task('test', ["merge"], function() {
  */
 gulp.task('package', ["test"],  function(cb) {
     var uglify = require('gulp-uglify');
-    var pump = require('pump');
-    
+
     var filesToUglify = [
         MERGED_FILES_DIR + '/brattac-all.js',
         MERGED_FILES_DIR + '/brattac-dom.js',
         MERGED_FILES_DIR + '/brattac-api.js',
+        MERGED_FILES_DIR + '/brattac-log.js',
         MERGED_FILES_DIR + '/brattac-oop.js'
     ];
-    
+
     var file;
     for (var i = 0; i < filesToUglify.length; i++) {
         file = filesToUglify[i];
