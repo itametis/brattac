@@ -18,6 +18,8 @@
  * with a proprietary license instead.
  */
 
+/* global expect, B */
+
 /**
  * @author <a href="mailto:social@itametis.com">Davy CLAISSE / ITAMETIS</a>
  */
@@ -127,6 +129,35 @@ describe("================================================================", fun
             expect(p.duplicateName()).toEqual("BatmanBatman");
         });
 
+
+        it("Methods can be called from constructor", function() {
+            // Given
+            B.Class({
+                name: "Person",
+
+                builder: function(name) {
+                    this.name = name;
+                    this.defaultName();
+                },
+
+                // Here, method declaration ordering is different from the previous case
+                methods: {
+                    defaultName: function() {
+                        this.name = "DEFAULT_NAME";
+                    },
+
+                    getName: function() {
+                        return this.name;
+                    }
+                }
+            });
+
+            // When
+            var p = new Person("Batman");
+
+            // Then
+            expect(p.getName()).toEqual("DEFAULT_NAME");
+        });
 
         it("Namespace of one depth level is correctly created and class injected into it", function() {
             B.Class({
