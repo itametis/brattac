@@ -17,6 +17,7 @@
  * ITAMETIS to get a commercial version of BRATTAC, with a proprietary
  * license instead.
  */
+
 /**
  * Package containing the code of Brattac API.
  *
