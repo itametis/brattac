@@ -6,7 +6,8 @@ var karma = require('karma');
 // Folders :
 var SRC_DIR = "./src/main/js";
 var TARGET_DIR = "./target";
-var MINIFIED_FILES_DIR = TARGET_DIR + "/minified";;
+var MINIFIED_FILES_DIR = TARGET_DIR + "/minified";
+;
 var MERGED_FILES_DIR = TARGET_DIR + "/merged";
 
 
@@ -31,18 +32,23 @@ gulp.task('merge', function() {
         .pipe(concat('brattac-dom.js'))
         .pipe(gulp.dest(MERGED_FILES_DIR));
 
+    // Concatenate Brattac LOG :
+    gulp.src([SRC_DIR + '/brattac-header.js', SRC_DIR + '/brattac-logger.js'])
+        .pipe(concat('brattac-log.js'))
+        .pipe(gulp.dest(MERGED_FILES_DIR));
+
     // Concatenate Brattac API :
     gulp.src([SRC_DIR + '/brattac-header.js', SRC_DIR + '/brattac-api.js'])
         .pipe(concat('brattac-api.js'))
         .pipe(gulp.dest(MERGED_FILES_DIR));
 
-    // Concatenate Brattac LOG :
-    gulp.src([SRC_DIR + '/brattac-header.js', SRC_DIR + '/brattac-logger.js'])
-        .pipe(concat('brattac-log.js'))
+    // Concatenate Brattac AJAX :
+    gulp.src([MERGED_FILES_DIR + '/brattac-api.js', SRC_DIR + '/brattac-ajax.js'])
+        .pipe(concat('brattac-ajax.js'))
         .pipe(gulp.dest(MERGED_FILES_DIR));
-        
+
     // Concatenate Brattac REST :
-    gulp.src([SRC_DIR + '/brattac-header.js', SRC_DIR + '/brattac-api.js', SRC_DIR + '/brattac-rest.js'])
+    gulp.src([MERGED_FILES_DIR + '/brattac-ajax.js', SRC_DIR + '/brattac-rest.js'])
         .pipe(concat('brattac-rest.js'))
         .pipe(gulp.dest(MERGED_FILES_DIR));
 
@@ -53,13 +59,14 @@ gulp.task('merge', function() {
 
     // Concatenate all files together (brattac-header is useless when brattac-dom is included) :
     return gulp.src([
-                SRC_DIR + '/brattac-dom.js',
-                SRC_DIR + '/brattac-api.js',
-                SRC_DIR + '/brattac-log.js',
-                SRC_DIR + '/brattac-oop.js'
-            ])
-            .pipe(concat('brattac-all.js'))
-            .pipe(gulp.dest(MERGED_FILES_DIR));
+        SRC_DIR + '/brattac-dom.js',
+        SRC_DIR + '/brattac-api.js',
+        SRC_DIR + '/brattac-log.js',
+        SRC_DIR + '/brattac-ajax.js',
+        SRC_DIR + '/brattac-rest.js',
+        SRC_DIR + '/brattac-oop.js'
+    ]).pipe(concat('brattac-all.js'))
+        .pipe(gulp.dest(MERGED_FILES_DIR));
 });
 
 
@@ -86,13 +93,14 @@ gulp.task('test', ["merge"], function() {
 /**
  * Minify all the merged files.
  */
-gulp.task('package', ["test"],  function(cb) {
+gulp.task('package', ["test"], function(cb) {
     var uglify = require('gulp-uglify');
 
     var filesToUglify = [
         MERGED_FILES_DIR + '/brattac-all.js',
         MERGED_FILES_DIR + '/brattac-dom.js',
         MERGED_FILES_DIR + '/brattac-api.js',
+        MERGED_FILES_DIR + '/brattac-ajax.js',
         MERGED_FILES_DIR + '/brattac-log.js',
         MERGED_FILES_DIR + '/brattac-oop.js'
     ];
@@ -101,8 +109,8 @@ gulp.task('package', ["test"],  function(cb) {
     for (var i = 0; i < filesToUglify.length; i++) {
         file = filesToUglify[i];
         gulp.src(file)
-        .pipe(uglify())
-        .pipe(gulp.dest(MINIFIED_FILES_DIR));
+            .pipe(uglify())
+            .pipe(gulp.dest(MINIFIED_FILES_DIR));
     }
 });
 
@@ -118,7 +126,6 @@ gulp.task('devmod', ["run-merge"], function() {
         process.exit(exitCode);
     });
 });
-
 
 
 /**

@@ -268,7 +268,9 @@
             var name = null;
             for (var i in names) {
                 name = names[i];
-                node[name] = !node[name] ? {} : node[name];
+                if (!node[name]) {
+                    node[name] = {};
+                }
                 node = node[name];
             }
         }
