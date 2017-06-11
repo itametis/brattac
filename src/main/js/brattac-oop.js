@@ -49,14 +49,14 @@
      *          B.Class({
      *              // For the inherits line, quotes are facultative so you can also type
      *              // 'inherits : com.itametis.Human,' instead of the one below :
-     *              inherits : "com.itametis.Human",
+     *              // inherits : "com.itametis.Human",
      *              name : "Person",
      *              namespace : "com.itametis",
      *
      *              builder : function(gender, name, firstName) {
      *                  // Equivalent to super() function in Java in order to give the rights parameters to the mother
      *                  // class constructor :
-     *                  com.itametis.Human.call(this, gender);
+     *                  // com.itametis.Human.call(this, gender);
      *
      *                  // Defintion of attributes :
      *                  this.name = name;
