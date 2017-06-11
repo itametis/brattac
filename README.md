@@ -22,6 +22,10 @@ B.Class({
 var colonel = new Person();
 ```
 
+
+
+
+
 Create class with constructor :
 ```javascript
 B.Class({
@@ -39,6 +43,10 @@ B.Class({
 var colonel = new Person("male", "O'Neil", "Jack");
 ```
 
+
+
+
+
 Create class with constructor in 'com.itametis' package :
 ```javascript
 B.Class({
@@ -55,6 +63,10 @@ B.Class({
 // Usage :
 var colonel = new com.itametis.Person("male", "O'Neil", "Jack");
 ```
+
+
+
+
 
 How to add instance methods :
 ```javascript
@@ -85,9 +97,52 @@ B.Class({
 });
 
 // Usage :
-var colonel = new Person("male", "O'Neil", "Jack");
-colonel.getName();      // Return "O'Neil"
+var colonel = new Person("male", "O'Neil", "Jack");     // Builds instance
+colonel.getName();                                      // Returns "O'Neil"
 ```
+
+
+
+
+
+How to inherits :
+```javascript
+B.Class({
+    name: "Person",                                     // The class name
+    namespace : "com.itametis",                         // The package where this class will be
+
+    builder : function(gender, name, firstName) {       // Constructor
+        // ...
+    },
+
+    methods : {
+        // ...
+    },
+
+    static_methods : {
+        // ...
+    }
+});
+
+B.Class({
+    name: "Male",                                       // The class name
+    namespace : "com.itametis",                         // The package where this class will be
+    // inherits : "com.itametis.Person",                // How to inherit methods
+    
+    builder : function(name, firstName) {
+        com.itametis.Human.call(this, "male", name, firstName); //  How to inherit attributes
+    }
+});
+
+
+// Usage :
+var colonel = new com.itametis.Male("O'Neil", "Jack");     // Builds instance
+colonel.getName();                                         // Returns "O'Neil" from inherited method 'Person::getName()'
+```
+
+
+
+
 
 How to add static methods :
 ```javascript
@@ -111,8 +166,11 @@ B.Class({
 });
 
 // Usage :
-Person.isHumanBeing();   // Return true
+Person.isHumanBeing();   // Returns true
 ```
+
+
+
 
 
 How to use constants in JavaScript :
