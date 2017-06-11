@@ -12,4 +12,136 @@ Brattac is provided under two licenses :
 * A commercial license for closed-source software.
 
 # Ok how does it work ?
-The tutorial explaining how to defined your classes using Brattac is explained [here](https://github.com/itametis/brattac/wiki/How-to-write-classes-with-Brattac).
+Create empty class :
+```javascript
+B.Class({
+    name: "Person"                                      // The class name
+});
+
+// Usage :
+var colonel = new Person();
+```
+
+Create class with constructor :
+```javascript
+B.Class({
+    name: "Person",                                     // The class name
+
+    builder : function(gender, name, firstName) {       // Constructor
+        // Attributes :
+        this.name = name;
+        this.firstName = firstName;
+    }
+});
+
+
+// Usage :
+var colonel = new Person("male", "O'Neil", "Jack");
+```
+
+Create class with constructor in 'com.itametis' package :
+```javascript
+B.Class({
+    name: "Person",                                     // The class name
+    namespace : "com.itametis",                         // The package where this class will be
+
+    builder : function(gender, name, firstName) {       // Constructor
+        // Attributes :
+        this.name = name;
+        this.firstName = firstName;
+    }
+});
+
+// Usage :
+var colonel = new com.itametis.Person("male", "O'Neil", "Jack");
+```
+
+How to add instance methods :
+```javascript
+B.Class({
+    name: "Person",                                     // The class name
+    namespace : "com.itametis",                         // The package where this class will be
+
+    builder : function(gender, name, firstName) {       // Constructor
+        // Attributes :
+        this.name = name;
+        this.firstName = firstName;
+    },
+
+    methods : {
+        getName : function() {
+            return this.name;
+        },
+
+        toString : function() {
+            // You can call either an attribute or a method with the 'this' keyword :
+            return this.firstName + " " + this.getName();
+        },
+
+        walk : function(destination) {
+            // Just a walking algorithm...
+        }
+    },
+});
+
+// Usage :
+var colonel = new Person("male", "O'Neil", "Jack");
+colonel.getName();      // Return "O'Neil"
+```
+
+How to add static methods :
+```javascript
+B.Class({
+    name: "Person",                                     // The class name
+    namespace : "com.itametis",                         // The package where this class will be
+
+    builder : function(gender, name, firstName) {       // Constructor
+        // ...
+    },
+
+    methods : {
+        // ...
+    },
+
+    static_methods : {
+        isHumanBeing : function() {
+            return true;
+        }
+    }
+});
+
+// Usage :
+Person.isHumanBeing();   // Return true
+```
+
+
+How to use constants in JavaScript :
+```javascript
+B.Class({
+    name: "Person",                                     // The class name
+    namespace : "com.itametis",                         // The package where this class will be
+
+    builder : function(gender, name, firstName) {       // Constructor
+        // ...
+    },
+
+    methods : {
+        // ...
+    },
+
+    static_methods : {
+        // ...
+    },
+
+    constants : {
+        FIRST_CONST = "STARGATE",
+        SECOND_CONST = "SG1"
+    }
+});
+
+
+// Usage :
+Person.constants.FIRST_CONST;                       // Returns "STARGATE"
+Person.constants.FIRST_CONST = "something";         // Change simply ignored by Brattac
+Person.constants.FIRST_CONST;                       // Returns "STARGATE"
+```
